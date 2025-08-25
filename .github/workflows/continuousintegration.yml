@@ -1,11 +1,11 @@
-name: Continuous Integration  (nome do Workflow)
+name: Continuous Integration
 on:
   pull_request:
     branches:
     - main
 
 jobs:
-  Build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
