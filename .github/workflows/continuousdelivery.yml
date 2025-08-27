@@ -2,21 +2,25 @@ name: "Continuous Delivery"
 on:
   push:
     branches:
-    - main # ou qualquer outra branch
+      - main # ou qualquer outra branch
+
+  permissions:
+    contents: read     # ler o código
+    actions: write     # necessário para enviar/baixar artifacts
 
 jobs:
   deliver:
     runs-on: ubuntu-latest
     steps:
-      - name: "Check out repository code"
+      - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: "Simulando Continuous Delivery"
+      - name: Simulando Continuous Delivery
         uses: actions/upload-artifact@v4
         with:
           name: projetozipado.zip
           path: |
-            '**.py'
+            **.py
             README.md
   deploy:
       runs-on: ubuntu-latest
@@ -25,5 +29,5 @@ jobs:
         - uses: actions/download-artifact@v5
           with:
             name: projetozipado.zip
-        - name: "Display structure of downloaded files"
+        - name: Display structure of downloaded files
           run: ls -R
