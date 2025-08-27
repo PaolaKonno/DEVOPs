@@ -1,4 +1,4 @@
-name: Continuous Delivery
+name: "Continuous Delivery"
 on:
   push:
     branches:
@@ -26,5 +26,5 @@ jobs:
           - uses: actions/download-artifact@v5
             with:
               name: projetozipado.zip
-          - name: Display structure of downloaded files
+          - name: "Display structure of downloaded files"
             run: ls -R
